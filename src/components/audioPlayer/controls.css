@@ -1,0 +1,45 @@
+.controls-wrapper{
+    width: 30%;
+    margin: 0px;
+    align-items: center;
+    justify-content: space-evenly;
+    /* background-color: rgb(34, 58, 58);
+    border-radius: 10px; */
+    padding: 5px 0;
+}
+
+
+.action-btn{
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    opacity: 0.7;
+}
+
+.action-btn:hover{
+    opacity: 1;
+    transform: scale(1.01);
+}
+
+.play-pause-btn{
+    width: 50px;
+    height: 50px;
+    /* background-color: rgb(54, 199, 49); */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 30px;
+
+}
+
+/* .play-pause-btn.active{
+
+} */
+
+.play-pause-btn:hover{
+    background-color: #1db954;
+}

@@ -1,0 +1,9 @@
+.elements-container{
+    width: calc(100vw - 100px);
+    height: 100vh;
+    background-color: #1f1f1f;
+    /* justify-content: flex-end; */
+    position: absolute;
+    right: 0;
+    top: 0;
+}

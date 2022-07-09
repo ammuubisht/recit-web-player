@@ -1,0 +1,22 @@
+* {
+  -ms-overflow-style: none;
+}
+
+.section-headWrapper2 {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0.5% 3.5%;
+}
+
+.back-icon {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.backIconDiv{
+    display: flex;
+    align-items: center;
+
+}
