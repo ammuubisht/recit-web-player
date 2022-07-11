@@ -9,6 +9,7 @@ export default function Library() {
   const [playlists, setPlaylists] = useState([]);
   const [artists, setArtists] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
+
   // const [username, setUsername] = useState("");
 
   // Fetching Playlist Details from API
@@ -28,6 +29,7 @@ export default function Library() {
     });
   }, []);
 
+  // get recently played tracks
   useEffect(() => {
     apiClient
       .get("me/player/recently-played?limit=6&after=1484811043508")
@@ -77,7 +79,7 @@ export default function Library() {
           <div
             className="recently-played-card"
             key={recent.track.id}
-            onClick={() => playPlaylist(recent.track.id)}
+            // onClick={() => playPlaylist(recent.track.id)}
           >
             <img
               src={recent.track?.album?.images[0]?.url}

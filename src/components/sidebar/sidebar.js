@@ -11,14 +11,24 @@ export default function Sidebar() {
   const [image, setImage] = useState(
     "https://images.unsplash.com/photo-1590700722804-caef4fed22e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
   );
+  // const [token, setToken] = useState("");
 
   const disabledPlayer = true;
+  console.log(Date.now());
 
+  
   // To Display User Information from spotify
   useEffect(() => {
+    if(window.localStorage.getItem("token_time") < parseInt(Date.now())){
+      window.localStorage.removeItem("token");
+      window.localStorage.clear();
+      window.location.reload();
+
+    }
     apiClient.get("me").then((response) => {
       setImage(response.data.images[0].url);
     });
+
   }, []);
   return (
     <div className="sidebar-cont">

@@ -24,9 +24,9 @@ export default function Home() {
       const _token = hash.split("&")[0].split("=")[1];
       const expiresIn = window.location.href.split("&")[2].split("=")[1];
       // console.log(expiresIn);
-      console.log(window.location);
       window.localStorage.setItem("token", _token);
       window.localStorage.setItem("expires_in", expiresIn);
+      window.localStorage.setItem("token_time", parseInt(Date.now()) + 3600000);
       setToken(_token);
       setClientToken(_token);
     } else {

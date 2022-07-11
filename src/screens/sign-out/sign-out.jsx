@@ -6,10 +6,9 @@ export default function SignOut() {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    const token = window.localStorage.getItem("token");
+    const _token = window.localStorage.getItem("token");
     const hash = window.location.hash;
-    window.location.hash = "";
-    window.localStorage.removeItem('token')
+    window.localStorage.clear();
     window.location.reload();
     if (!token && hash) {
       setToken(null);
