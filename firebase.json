@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "recit",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
