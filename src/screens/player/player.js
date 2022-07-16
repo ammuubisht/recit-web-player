@@ -5,9 +5,14 @@ import SongCard from "../../components/songCard/songCard.jsx";
 import { useLocation } from "react-router-dom";
 import apiClient from "../../spotify";
 import AudioPlayer from "../../components/audioPlayer/audioPlayer";
+import MoonLoader from "react-spinners/MoonLoader";
+
 
 export default function Player() {
   const location = useLocation();
+
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
 
   const [tracks, setTracks] = useState([]);
   const [currentTrack, setCurrentTrack] = useState({});
@@ -15,6 +20,8 @@ export default function Player() {
   const [boolArtist, setBoolArtist] = useState();
 
   useEffect(() => {
+    setLoading(true);
+
     try {
       if (location.state.id) {
         apiClient
@@ -24,6 +31,7 @@ export default function Player() {
             setTracks(res.data.items);
             setCurrentIndex(currentIndex);
             setBoolArtist(false);
+            setLoading(false);
           });
       }
     } catch (error) {
@@ -32,12 +40,14 @@ export default function Player() {
   }, [location.state]);
 
   useEffect(() => {
+    setLoading(true);
     if (location.state.trackid) {
       apiClient
         .get("tracks/" + location.state.trackid + "?market=in")
         .then((res) => {
           setCurrentTrack(res.data);
           setBoolArtist(true);
+          setLoading(false);
         });
     }
   }, [location.state]);
@@ -65,7 +75,11 @@ export default function Player() {
     );
   }, [currentIndex, tracks]);
 
-  return (
+  return loading ? (
+    <div className="loader-page">
+      <MoonLoader color={color} loading={loading} size={50} />
+    </div>
+  ) : (
     <div className="elements-container flex">
       <div className="left-body">
         <SongCard album={currentTrack?.album} track={currentTrack} />

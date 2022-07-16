@@ -19,5 +19,6 @@
     border-radius: 30px;
     object-fit: cover;
     margin-top: 20px;
+    cursor: pointer;
 }
 

@@ -4,8 +4,12 @@ import apiClient from "../../spotify";
 import { BsPlayCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import "./library.css";
+import MoonLoader from "react-spinners/MoonLoader";
+
 
 export default function Library() {
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
   const [playlists, setPlaylists] = useState([]);
   const [artists, setArtists] = useState([]);
   const [recentlyPlayed, setRecentlyPlayed] = useState([]);
@@ -15,11 +19,13 @@ export default function Library() {
   // Fetching Playlist Details from API
 
   useEffect(() => {
+    setLoading(true);
     apiClient
       .get("me/top/artists?time_range=medium_term&limit=6&offset=5")
       .then((response) => {
         setArtists(response.data.items);
         // console.log(response.data.items);
+        setLoading(false);
       });
   }, []);
 
@@ -35,7 +41,6 @@ export default function Library() {
       .get("me/player/recently-played?limit=6&after=1484811043508")
       .then((response) => {
         setRecentlyPlayed(response.data.items);
-        console.log(response.data.items);
       });
   }, []);
 
@@ -68,7 +73,16 @@ export default function Library() {
     navigate("/top-artists");
   };
 
-  return (
+  return loading ? (
+    <div className="loader-page">
+
+      <MoonLoader
+        color={color}
+        loading={loading}
+        size={50}
+      />
+    </div>
+  ) : (
     <div className="elements-container">
       {/* Recently Played section */}
       <div className="section-headWrapper">

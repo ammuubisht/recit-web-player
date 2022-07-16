@@ -1,0 +1,136 @@
+.profile-photo2 {
+  height: 180px;
+  width: 180px;
+  border-radius: 100px;
+}
+
+.profile {
+  height: auto;
+}
+
+.username {
+  text-decoration: none;
+  color: #fff;
+  font-size: 46px;
+  font-weight: 700;
+  transition: all 0.15s ease-in-out;
+  margin: 20px 0px;
+}
+
+.username:hover {
+  color: #1db954;
+}
+
+.user-stats {
+  justify-content: space-evenly;
+  width: 30vw;
+}
+
+.user-stats-ind {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-count {
+  color: #1db954;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.stat-name {
+  color: rgb(126, 126, 126);
+  font-size: 18px;
+}
+
+.artist-iconProfile {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.bottom-cont {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  width: calc(100vw - 300px);
+  padding: 10px 100px;
+  overflow: hidden;
+}
+
+.upper-cont {
+  margin-top: 15vh;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  flex-direction: column;
+  width: 100%;
+}
+
+.top-artists-section {
+  width: 50%;
+}
+.artists-heading {
+  font-size: 28px;
+  color: #fff;
+}
+
+.artist-block {
+  width: 100%;
+  padding: 15px 0px;
+}
+
+.artist-name {
+  margin-left: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.track-block {
+  width: 100%;
+  padding: 15px 0px;
+}
+
+.album-iconProfile {
+  width: 50px;
+  height: 50px;
+}
+
+.track-name {
+  margin-left: 20px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.track-info {
+  margin-left: 20px;
+  font-weight: 600;
+  color: #7f7f7f;
+  font-size: 14px;
+  
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.album-name {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.track-details-flex {
+  justify-content: space-between;
+  display: flex;
+  width: 80%;
+  
+}
+
+.track-duration {
+  color: #7f7f7f;
+  font-weight: 600;
+}
+
+.track-details2{
+    width: 80%;
+}

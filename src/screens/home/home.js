@@ -12,6 +12,7 @@ import Playlists from "../playlists/playlists.jsx";
 import Artist from "../artist/artist.jsx";
 import TopArtists from "../top-artists/top-artists.jsx";
 import SignOut from "../sign-out/sign-out.jsx";
+import Profile from "../profile/profile.jsx";
 
 export default function Home() {
   const [token, setToken] = useState("");
@@ -51,6 +52,7 @@ export default function Home() {
           <Route path="/playlists" element={<Playlists />} />
           <Route path="/artist" element={<Artist />} />
           <Route path="/top-artists" element={<TopArtists />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>

@@ -57,6 +57,7 @@
   /* color: #fff; */
   width: 75%;
   text-overflow: ellipsis;
+  margin: 0;
 }
 
 .active2{
@@ -79,3 +80,21 @@
   padding: 0 10px;
 }
 
+
+.track-details2{
+  width: 80%;
+  margin-left: 20px;
+}
+
+.track-artist-info{
+  
+  font-weight: 600;
+  color: #7f7f7f;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.list-track-icon{
+  margin: 0 10px;
+}

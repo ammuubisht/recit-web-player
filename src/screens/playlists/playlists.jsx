@@ -7,15 +7,22 @@ import apiClient from "../../spotify";
 import { BiArrowBack } from "react-icons/bi";
 import { BsPlayCircleFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import MoonLoader from "react-spinners/MoonLoader";
 
 export default function Playlists() {
   const [playlists, setPlaylists] = useState([]);
+
+  let [loading, setLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
   // const [username, setUsername] = useState("");
 
   // Fetching Playlist Details from API
   useEffect(() => {
+    setLoading(true);
     apiClient.get("me/playlists").then((response) => {
       setPlaylists(response.data.items);
+      setLoading(false);
+
       // console.log(response.data.items);
     });
   }, []);
@@ -28,7 +35,11 @@ export default function Playlists() {
     navigate(-1);
   };
 
-  return (
+  return loading ? (
+    <div className="loader-page">
+      <MoonLoader color={color} loading={loading} size={50} />
+    </div>
+  ) : (
     <div className="elements-container">
       <div className="section-headWrapper2">
         <div className="backIconDiv" onClick={() => navigateBack()}>
