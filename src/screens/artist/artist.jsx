@@ -16,6 +16,7 @@ export default function Artist() {
   const [artisttracks, setArtistTracks] = useState([]);
   const [artistinfo, setArtistInfo] = useState({});
   const [relatedArtists, setRelatedArtists] = useState([]);
+  const [artistImage, setArtistImage] = useState("");
 
   // Get Tracks of Artist
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Artist() {
     if (location.state) {
       apiClient.get("artists/" + location.state.id).then((res) => {
         setArtistInfo(res.data);
-        // console.log(res.data);
+        setArtistImage(res.data.images[0]?.url);
       });
     }
   }, []);
@@ -48,7 +49,7 @@ export default function Artist() {
         .get("artists/" + location.state.id + "/related-artists")
         .then((res) => {
           setRelatedArtists(res.data.artists);
-          console.log(res.data.artists);
+          // console.log(res.data.artists);
         });
     }
   }, []);
@@ -75,60 +76,66 @@ export default function Artist() {
       <MoonLoader color={color} loading={loading} size={50} />
     </div>
   ) : (
-    <div className="elements-container flex">
-      <div className="left-body2">
-        <div className="section-headWrapper3">
-          <div className="backIconDiv" onClick={() => navigateBack()}>
-            <IconContext.Provider
-              value={{
-                size: "40px",
-                className: "back-icon",
-              }}
-            >
-              <BiArrowBack />
-            </IconContext.Provider>
+    
+      <div className="elements-container ">
+      <img src={artistImage} className="artist-cover" />
+      <div className="flex">
+        <div className="left-body2">
+          <div className="section-headWrapper3">
+            <div className="backIconDiv" onClick={() => navigateBack()}>
+              <IconContext.Provider
+                value={{
+                  size: "40px",
+                  className: "back-icon",
+                }}
+              >
+                <BiArrowBack />
+              </IconContext.Provider>
+            </div>
+            <div className="section-titleArtist">
+              {artistinfo.name}
+            </div>
           </div>
-          <h1 className="section-titleArtist">
-            {artistinfo.name}'s Top Tracks
-          </h1>
+          <div className="artistTrackCont">
+            {artisttracks.map((artistTrack, index) => (
+              <div
+                key={artistTrack.id}
+                className="indTracks flex"
+                onClick={() =>
+                  playPlaylist(artistTrack.id, location.state.id, index)
+                }
+              >
+                <img
+                  src={artistTrack.album.images[0].url}
+                  className="list-track-icon"
+                  alt="track-icon"
+                />
+                <p className="artistTrackName">{artistTrack.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="artistTrackCont">
-          {artisttracks.map((artistTrack, index) => (
-            <div
-              key={artistTrack.id}
-              className="indTracks flex"
-              onClick={() =>
-                playPlaylist(artistTrack.id, location.state.id, index)
-              }
-            >
-              <img
-                src={artistTrack.album.images[0].url}
-                className="list-track-icon"
-                alt="track-icon"
-              />
-              <p className="artistTrackName">{artistTrack.name}</p>
-            </div>
-          ))}
-        </div>
-      </div>
 
-      <div className="right-body2">
-        <h3 className="similar-artist-head">Similar Artist's you might like</h3>
-        <div className="library-body artist">
-          {relatedArtists.slice(0, 6).map((relatedArtist) => (
-            <div
-              className="artist-card"
-              key={relatedArtist.id}
-              onClick={() => artistSongs(relatedArtist.id)}
-            >
-              <img
-                src={relatedArtist.images[0]?.url}
-                alt="artist-icon"
-                className="artist-icon-sugg"
-              />
-              <p className="artist-name-sugg">{relatedArtist.name}</p>
-            </div>
-          ))}
+        <div className="right-body2">
+          <h3 className="similar-artist-head">
+            Similar Artist's you might like
+          </h3>
+          <div className="library-body artist">
+            {relatedArtists.slice(0, 6).map((relatedArtist) => (
+              <div
+                className="artist-card"
+                key={relatedArtist.id}
+                onClick={() => artistSongs(relatedArtist.id)}
+              >
+                <img
+                  src={relatedArtist.images[0]?.url}
+                  alt="artist-icon"
+                  className="artist-icon-sugg"
+                />
+                <p className="artist-name-sugg">{relatedArtist.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
