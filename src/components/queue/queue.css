@@ -46,7 +46,8 @@
 
 .queue-items:hover {
   /* transform: scale(0.98); */
-  background-color: #1db954;
+  background-color: #373737;
+  color: #fff;
 }
 
 /* .queue-items p{

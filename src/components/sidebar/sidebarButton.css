@@ -13,7 +13,7 @@ a {
     justify-content: center;
     margin: 5px auto;
     color: #fff;
-    transition: all 0.15s ease;
+    transition: all 0.3s ease;
 }
 
 .btn-title{
@@ -23,8 +23,8 @@ a {
 }
 
 .btn-body:hover{
-    /* transform: scale(1.02); */
-    opacity: 70%;
+    transform: scale(1.01);
+    /* opacity: 70%; */
 }
 
 .btn-body.active{

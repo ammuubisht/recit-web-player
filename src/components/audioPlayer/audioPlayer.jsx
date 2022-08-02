@@ -133,8 +133,8 @@ export default function AudioPlayer({
     <div className="player-body flex">
       {/* <ProgressBar percentage={75} isPlaying={true} /> */}
       <div className="song-duration flex">
-        <p className="duration">0:{addZero(Math.round(trackProgress))}</p>
-        <p className="duration">0:30</p>
+        {/* <p className="duration">0:{addZero(Math.round(trackProgress))}</p>
+        <p className="duration">0:30</p> */}
       </div>
       <Controls
         isPlaying={isPlaying}
