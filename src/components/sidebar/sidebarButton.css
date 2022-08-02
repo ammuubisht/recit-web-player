@@ -23,7 +23,7 @@ a {
 }
 
 .btn-body:hover{
-    transform: scale(1.01);
+    transform: scale(1.015);
     /* opacity: 70%; */
 }
 
