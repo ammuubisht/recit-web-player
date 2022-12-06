@@ -2,8 +2,9 @@ import axios from "axios";
 
 const authEndPoint = "https://accounts.spotify.com/authorize?";
 const clientId = "5c937f8cc3464b71987ab21db811f2a7";
-// const redirectUri = "http://localhost:3000/";  
-const redirectUri = "https://recit-player.herokuapp.com/";
+// const redirectUri = "https://recit-player.web.app/";  
+// const redirectUri = "https://recit-player.herokuapp.com/";
+const redirectUri = "http://localhost:3000/";
 const scopes = [
   "user-library-read",
   "playlist-read-private",

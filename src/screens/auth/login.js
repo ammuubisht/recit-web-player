@@ -1,14 +1,15 @@
 import React from "react";
 import { loginEndPoint } from "../../spotify";
 import "./login.css";
-import { BsGithub , BsLink45Deg, BsInstagram} from "react-icons/bs";
+import { BsGithub , BsLink45Deg, BsInstagram, BsLinkedin} from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
 
 export default function Login() {
 
   const githubURL = 'https://www.github.com/ammuubisht';
-  const portfolioURL = 'https://ammuus.herokuapp.com';
+  const portfolioURL = 'https://amitbisht.in';
   const instaURL = 'https://instagram.com/ammuu.bisht';
+  const linkedInURL = 'https://www.linkedin.com/in/amitbisht289/';
 
   const openGitub = () =>{
     window.open(githubURL, '_blank')
@@ -21,6 +22,11 @@ export default function Login() {
   const openInstagram= () =>{
     window.open(instaURL, '_blank');
   }
+
+  const openLinkedin = () =>{
+    window.open(linkedInURL, '_blank');
+  }
+
   return (
     <div className="login-page">
       <h1 className="login-title">&#127752; Recit - Web Player</h1>
@@ -32,15 +38,15 @@ export default function Login() {
       </a>
       <div className="social-links flex">
         <IconContext.Provider value={{ size: "28px", color: "#fff", className:'social-links-icons'}}>
-          <BsGithub onClick={()=>openGitub()}/>
           <BsLink45Deg onClick={()=>openPortfolio()}/>
+          <BsGithub onClick={()=>openGitub()}/>
           <BsInstagram onClick={()=>openInstagram()}/>
+          <BsLinkedin onClick={()=>openLinkedin()}/>
         </IconContext.Provider>
       </div>
       <div className="footer">
         <p className="footer-text">
-          By logging in with Spotify, your profile will be synced in order to
-          provide you the best experience.
+          Made with ❤️ by Amit Bisht
         </p>
       </div>
     </div>

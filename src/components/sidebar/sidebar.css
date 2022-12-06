@@ -22,3 +22,7 @@
     cursor: pointer;
 }
 
+.profile-photo:hover{
+    opacity: 0.8;
+}
+
